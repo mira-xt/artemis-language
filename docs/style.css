@@ -1,24 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@font-face {
+  font-family: 'Iosevka Nerd';
+  src: url('/fonts/iosevka_nerd_light.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter Tight';
+  src: url('/fonts/inter_tight.ttf') format('truetype');
+  font-style: normal;
+}
 
 body {
     margin: 0;
-    font-family: 'Ubuntu Condensed', sans-serif;
-    background-color: #10101B;
+    font-family: 'Inter Tight', sans-serif;
+    background-color: #101010;
     color: #D0D0D0;
     text-shadow: 3pt 5pt 8pt #000000;
 }
 
 header {
-    background-color: #141420;
+    background-color: #141414;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 100;
-    font-family: 'Ubuntu Condensed', sans-serif;
+    font-family: 'Inter Tight', sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #A8CBFE;
+    color: #D0D0D8;
 }
 
 nav {
@@ -27,7 +36,7 @@ nav {
     top: 60px;
     bottom: 0;
     overflow-y: auto;
-    background-color: #12121d;
+    background-color: #121212;
     padding: 1rem;
 }
 
@@ -51,29 +60,29 @@ h1,
 h2,
 h3 {
     font-weight: bold;
-    color: #5A9CFE;
+    color: white;
 }
 
 pre {
-    background-color: #14141E;
+    background-color: #141414;
     padding: 1rem;
     border-radius: 2pt;
     overflow-x: auto;
 }
 
 .inline-code {
-    background-color: #14141E;
+    background-color: #141414;
     padding: 2pt;
     border-radius: 2pt;
 }
 
 code {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Iosevka Nerd', monospace;
     color: whitesmoke;
 }
 
 a {
-    color: #A8CBFE;
+    color: #D0D0FF;
     text-decoration: none;
 }
 

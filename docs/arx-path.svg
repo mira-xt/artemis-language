@@ -7,8 +7,12 @@
    id="svg2"
    sodipodi:docname="arx-path.svg"
    inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   inkscape:export-filename="arx-path.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -21,16 +25,36 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:zoom="3.81"
-     inkscape:cx="100"
-     inkscape:cy="100.13123"
-     inkscape:window-width="1829"
-     inkscape:window-height="967"
+     inkscape:cx="100.13123"
+     inkscape:cy="100"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2" />
   <defs
      id="defs2">
+    <linearGradient
+       id="swatch5"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#5a9cfe;stop-opacity:1;"
+         offset="0"
+         id="stop3" />
+      <stop
+         style="stop-color:#5a9cfe;stop-opacity:0;"
+         offset="1"
+         id="stop4" />
+    </linearGradient>
     <!-- Moon gradient -->
     <radialGradient
        id="moonGradient"
@@ -38,14 +62,34 @@
        cy="50%"
        r="50%">
       <stop
-         offset="0%"
+         offset="0"
          stop-color="#fdfdfd"
-         id="stop1" />
+         id="stop1"
+         style="stop-color:#999999;stop-opacity:1;" />
       <stop
-         offset="100%"
+         offset="1"
          stop-color="#e0e0e0"
-         id="stop2" />
+         id="stop2"
+         style="stop-color:#3f3f3f;stop-opacity:1;" />
     </radialGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="linearGradient4"
+       x1="28.643293"
+       y1="64.984131"
+       x2="63.621419"
+       y2="64.984131"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#swatch5"
+       id="linearGradient5"
+       x1="28.643293"
+       y1="64.984131"
+       x2="63.621419"
+       y2="64.984131"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <!-- Full moon background -->
   <circle
@@ -55,18 +99,31 @@
      fill="url(#moonGradient)"
      stroke="#ffffff"
      stroke-width="1"
-     id="circle2" />
+     id="circle2"
+     style="stroke:#000000;stroke-opacity:1;stroke-width:1.0002;stroke-dasharray:none" />
   <!-- ARX Text -->
-  <path
-     d="m 46.949984,47.903 q 0.696,2.175 1.363,4.408 0.696,2.204 1.334,4.64 0.667,2.436 1.305,5.162 0.667,2.726 1.334,5.887 h -2.61 q -0.232,-1.305 -0.493,-2.581 -0.232,-1.276 -0.493,-2.552 h -6.322 q -0.29,1.276 -0.522,2.552 -0.232,1.276 -0.464,2.581 h -2.523 q 0.638,-3.161 1.305,-5.887 0.667,-2.726 1.305,-5.162 0.667,-2.436 1.334,-4.64 0.696,-2.233 1.392,-4.408 z m -1.421,2.958 q -0.725,2.407 -1.392,4.843 -0.667,2.436 -1.276,4.988 h 5.307 q -0.58,-2.552 -1.247,-4.988 -0.667,-2.436 -1.392,-4.843 z m 9.773008,-2.668 q 2.03,-0.493 3.915,-0.493 1.508,0 2.726,0.348 1.218,0.348 2.088,1.102 0.87,0.754 1.334,1.943 0.493,1.189 0.493,2.871 0,2.088 -0.812,3.393 -0.783,1.276 -2.146,1.943 0.348,0.58 0.87,1.595 0.551,0.986 1.102,2.204 0.58,1.189 1.102,2.465 0.551,1.276 0.928,2.436 h -2.61 q -0.319,-0.87 -0.812,-1.972 -0.464,-1.102 -0.986,-2.175 -0.522,-1.102 -1.044,-2.088 -0.522,-1.015 -0.928,-1.711 -0.464,0.058 -0.957,0.087 -0.493,0.029 -0.986,0.029 h -0.725 V 68 h -2.552 z m 2.552,9.831 h 1.102 q 2.001,0 3.074,-0.899 1.073,-0.928 1.073,-3.161 0,-1.131 -0.29,-1.885 -0.261,-0.783 -0.783,-1.218 -0.493,-0.464 -1.218,-0.667 -0.696,-0.203 -1.566,-0.203 -0.754,0 -1.392,0.087 z m 16.994004,-2.755 3.451,-7.366 h 2.61 l -4.582,9.338 q 0.609,1.305 1.276,2.726 0.696,1.392 1.334,2.813 0.667,1.392 1.247,2.726 0.58,1.334 1.015,2.494 h -2.581 q -0.319,-0.87 -0.754,-1.885 -0.406,-1.044 -0.928,-2.117 -0.493,-1.073 -1.044,-2.175 -0.522,-1.131 -1.044,-2.175 -0.522,1.044 -1.073,2.175 -0.551,1.102 -1.044,2.175 -0.493,1.073 -0.928,2.117 -0.406,1.015 -0.696,1.885 h -2.523 q 0.406,-1.131 0.986,-2.436 0.58,-1.305 1.218,-2.668 0.638,-1.392 1.276,-2.784 0.667,-1.392 1.276,-2.668 l -4.64,-9.541 h 2.668 z"
-     id="text2"
-     style="font-size:29px;font-family:'Ubuntu Condensed', sans-serif;text-anchor:middle;fill:#5a9cfe;stroke:#ffffff;stroke-width:0.5"
-     aria-label="ARX" />
   <!-- Star -->
   <path
      d="m 90.458392,27.056315 c 0.06546,0.493371 -8.910638,3.36632 -9.21901,3.752205 -0.308372,0.385885 -0.890364,9.797844 -1.375076,9.858299 -0.493371,0.06546 -3.366321,-8.910638 -3.752205,-9.21901 -0.385885,-0.308372 -9.797844,-0.890364 -9.8583,-1.375076 -0.06546,-0.493371 8.910639,-3.36632 9.219011,-3.752205 0.308372,-0.385885 0.881704,-9.792844 1.375075,-9.858299 0.493372,-0.06546 3.366321,8.910638 3.752206,9.21901 0.385884,0.308372 9.797844,0.890364 9.858299,1.375076 z"
      fill="#a8cbfe"
      stroke="#ffffff"
      stroke-width="1"
-     id="path2" />
+     id="path2"
+     style="paint-order:fill markers stroke;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke:#000000;stroke-opacity:1;stroke-width:0.48;stroke-dasharray:none;fill:#fefefe;fill-opacity:1" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:19.2px;font-family:'Inter Tight';-inkscape-font-specification:'Inter Tight Light';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;display:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.96;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+     x="60.009377"
+     y="81.984375"
+     id="text1"><tspan
+       sodipodi:role="line"
+       id="tspan1"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.96;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+       x="60.009377"
+       y="81.984375">ARX</tspan></text>
+  <path
+     d="m 44.151563,81.984375 h -1.340625 l 5.090626,-13.968751 h 1.359375 l 5.08125,13.968751 h -1.33125 L 48.623439,69.675 h -0.09375 z m 0.965625,-5.353125 h 6.928126 V 77.775 h -6.928126 z m 10.996876,5.353125 V 68.015624 h 4.51875 q 1.490625,0 2.484375,0.54375 0.99375,0.534375 1.5,1.481251 0.515625,0.946875 0.515625,2.165625 0,1.21875 -0.50625,2.15625 -0.50625,0.928125 -1.509375,1.453125 -0.99375,0.525 -2.465625,0.525 h -3.834375 v -1.1625 h 3.796875 q 1.096875,0 1.81875,-0.365625 0.721875,-0.365625 1.078125,-1.03125 0.365625,-0.665625 0.365625,-1.575 0,-0.91875 -0.365625,-1.603125 -0.365625,-0.684375 -1.0875,-1.059375 -0.721875,-0.375001 -1.828125,-0.375001 h -3.20625 v 12.815626 z m 8.11875,0 -3.39375,-6.309375 h 1.44375 l 3.43125,6.309375 z m 3.628125,-13.968751 3.8625,6.065626 h 0.09375 l 3.8625,-6.065626 h 1.509376 l -4.490626,6.993751 4.490626,6.975 h -1.509376 l -3.8625,-5.990625 h -0.09375 l -3.8625,5.990625 h -1.5 l 4.55625,-6.975 -4.55625,-6.993751 z"
+     id="text6"
+     style="font-weight:300;font-size:19.2px;font-family:'Inter Tight';-inkscape-font-specification:'Inter Tight Light';text-align:center;text-anchor:middle;fill:#ffffff;stroke:#000000;stroke-width:0.96;paint-order:markers stroke fill"
+     aria-label="ARX" />
 </svg>
