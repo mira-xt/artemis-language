@@ -8,7 +8,7 @@ class ArtemisLexer(Lexer):
         'TRUE', 'FALSE', 'NOT', 'OR', 'AND',
         'ID', 'NUMBER', 'FLOATNUMBER', 'STRING',
         'EQEQ', 'NOTEQ', 'LTEQ', 'GTEQ', 'LT', 'GT',
-        'PLUSPLUS', 'MINUSMINUS', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE',
+        'PLUSPLUS', 'MINUSMINUS', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'PERCENT',
         'ASSIGN', 'COLON', 'COMMA', 'IF', 'ELSE', 'WHILE', 'FOR', 'IN', 'BREAK', 'CONTINUE',
         'LBRACE', 'RBRACE', 'LPAREN', 'RPAREN', 'LBRACKET', 'RBRACKET', 'DOT', 'RETURN',
     }
@@ -38,6 +38,7 @@ class ArtemisLexer(Lexer):
     COLON : str = r':'
     COMMA : str = r','
     DOT   : str = r'\.'
+    PERCENT : str = r'\%'
 
     LBRACE   : str = r'\{'
     RBRACE   : str = r'\}'
@@ -109,4 +110,3 @@ class ArtemisLexer(Lexer):
     def error(self, token:Token) -> None:
         print(f'Illegal character {token.value[0]!r} at line {self.lineno}')
         self.index += 1
-

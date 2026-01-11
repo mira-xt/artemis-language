@@ -1,0 +1,7 @@
+using io
+
+int _exec() {
+    int result = io.input_integer('> ')
+    io.print(result % 3)
+    return 0
+}

@@ -93,7 +93,7 @@ class ArtemisCompiler:
             return total_size
         else:
             raise NotImplementedError(f'ABI size calculation not implemented for {ir_type}')
-        
+
     def safe_store(self, value: ir.Value, pointer: ir.AllocaInstr):
         target_type = pointer.type.pointee
         if target_type != value.type:
@@ -132,7 +132,7 @@ class ArtemisCompiler:
                 externs : dict = parse_function_overloads(cfg['functions'].items(), module_name)
                 for full_name, overloads in externs.items():
                     self.extern_functions.setdefault(full_name, {}).update(overloads)
-    
+
     def load_using(self, using_list: set[str], search_dir: str) -> None:
         arx_using : set[str] = { arx_file for arx_file in using_list if os.path.exists(os.path.join(search_dir, arx_file + arx_extension)) }
         c_using : set[str] = using_list.difference(arx_using)
@@ -186,7 +186,7 @@ class ArtemisCompiler:
             self.compile_statement(statement)
         if self.builder.block.terminator is None:
             raise Exception(f'Missing return in function {name}')
-    
+
     def compile_class(self, node:tuple) -> None:
         _, name, body = node
         fields = [m for m in body if m[0] == 'field']
@@ -680,6 +680,8 @@ class ArtemisCompiler:
                         return self.builder.mul(left_value, right_value)
                     case '/':
                         return self.builder.sdiv(left_value, right_value)  # signed division
+                    case '%':
+                        return self.builder.srem(left_value, right_value)  # signed mod
                     case 'and':
                         return self.builder.and_(left_value, right_value)
                     case 'or':
@@ -762,7 +764,7 @@ class ArtemisCompiler:
                         if t_expr in self.variables:
                             return self.variables[t_expr][0]
                     raise NotImplementedError(f'Unsupported target for ++/--: {t_expr}')
-                
+
                 pointer = resolve_pointer_and_type(target_expression)
                 cur = self.builder.load(pointer)
                 if not isinstance(cur.type, ir.IntType):
@@ -787,4 +789,3 @@ class ArtemisCompiler:
         exec_fn = self.module.get_global('_exec')
         return_value = builder.call(exec_fn, [])
         builder.ret(return_value)
-
