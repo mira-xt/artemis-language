@@ -13,6 +13,7 @@ def build(file_in:str, executable_dir:str) -> None:
     map_paths : set[str] = set()
     map_paths.add(os.path.join(executable_dir, 'c_map'))
     compiler_data : ArtemisData = ArtemisData(map_paths)
+    compiler_data.is_main = True
     compiler : ArtemisCompiler = ArtemisCompiler(compiler_data)
     module : str = compiler.compile_exec(file_in)
 
@@ -34,7 +35,7 @@ def build(file_in:str, executable_dir:str) -> None:
         f.write(module)
     debug_print('[llc]')
     subprocess.run([llc_path, out_ll, '-filetype=obj', '-o', out_o], check=True)
-    
+
     final_command : list[str] = [gcc_path, out_o]
     total_libs : int = len(compiler.extern_c) + 1
     for i, c_lib in enumerate(compiler.extern_c):

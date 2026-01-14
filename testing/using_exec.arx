@@ -1,0 +1,8 @@
+using io
+using lib_exec
+
+int _exec() {
+    int n = lib_exec.fib(8)
+    io.print(n)
+    return 0
+}

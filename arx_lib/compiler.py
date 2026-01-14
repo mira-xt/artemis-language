@@ -5,6 +5,7 @@ import shutil
 import os
 import sys
 import re
+import copy
 from .helpers import debug_print, arx_extension
 from .data_classes import ArtemisData, TypeEnum
 from .converters import ir_to_string, string_to_ir
@@ -66,13 +67,14 @@ class ArtemisCompiler:
         self.extern_modules: dict[str, ir.Module] = {}
         self.extern_modules_namespace: dict[str, dict[str, str]] = {}
         self.list_struct_type : ir.IdentifiedStructType = ir.global_context.get_identified_type('List')
-        self.list_struct_type.set_body(
-            TypeEnum.int8.as_pointer(),
-            TypeEnum.int32,
-            TypeEnum.int32,
-            TypeEnum.int64,
-            TypeEnum.boolean
-        )
+        if compiler_data.is_main:
+            self.list_struct_type.set_body(
+                TypeEnum.int8.as_pointer(),
+                TypeEnum.int32,
+                TypeEnum.int32,
+                TypeEnum.int64,
+                TypeEnum.boolean
+            )
 
     def get_abi_size_from_ir_type(self, ir_type: ir.Type) -> int:
         if isinstance(ir_type, ir.IntType):
@@ -207,7 +209,9 @@ class ArtemisCompiler:
     def compile_sub(self, sub_module:str, search_dir:str) -> tuple[set[str], ir.Module]:
         if sub_module in self.extern_modules:
             return (self.extern_c, self.extern_modules[sub_module])
-        sub_compiler : ArtemisCompiler = ArtemisCompiler(self.compiler_data)
+        sub_compiler_data : ArtemisData = copy.deepcopy(self.compiler_data)
+        sub_compiler_data.is_main = False
+        sub_compiler : ArtemisCompiler = ArtemisCompiler(sub_compiler_data)
         ast : tuple = parse_file(os.path.join(search_dir, sub_module + arx_extension))
         using_modules : set[str] = {mod[1] for mod in ast[1]}
         debug_print(using_modules)
@@ -252,11 +256,14 @@ class ArtemisCompiler:
         exec_module_lines : list[str] = str(self.module).splitlines()
         final_ir_lines : list[str] = []
         declare_set : set[str] = set()
+        definition_set : set[str] = set()
         for line in exec_module_lines:
             if not line.startswith('; ModuleID'):
                 final_ir_lines.append(line)
             if line.startswith('declare'):
                 declare_set.add(line)
+            if line.startswith('%"List"'):
+                definition_set.add(line)
         for sub_name, sub_module in self.extern_modules.items():
             sub_ir_lines = str(sub_module).splitlines()
             for line in sub_ir_lines:
@@ -266,6 +273,10 @@ class ArtemisCompiler:
                     if line in declare_set:
                         continue
                     declare_set.add(line)
+                if line.startswith('%"List"'):
+                    if line in definition_set:
+                        continue
+                    definition_set.add(line)
                 for unmangled_name, mangled_name in self.extern_modules_namespace[sub_name].items():
                     line = line.replace(f'@{unmangled_name}', f'@{mangled_name}')
                 final_ir_lines.append(line)

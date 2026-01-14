@@ -19,3 +19,4 @@ class ArtemisData:
     map_paths:set[str] = field(default_factory=set)
     library_paths:set[str] = field(default_factory=set)
     class_bodies:dict[str, Any] = field(default_factory=dict)
+    is_main:bool = False
